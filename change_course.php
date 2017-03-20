@@ -5,7 +5,7 @@
         while($row=mysql_fetch_array($course_info)) $Data[]=$row;
         mysql_close($con);
 
-        $course_name=$_GET["course"];
+        $course_name=$_GET["course"];//get the variable course and search the corresponding record in the mysql data base
         if(strlen($course_name)>0)
         {
                 $times=array();
@@ -17,7 +17,7 @@
                 $response="";
                 foreach($times as $one_time)
                 {
-                        $response.="<option value=\"".$one_time."\">".$one_time."</option>";
+                        $response.="<option value=\"".$one_time."\">".$one_time."</option>";//send the new time list back
                 }
                 echo $response;
         }

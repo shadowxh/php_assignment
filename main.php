@@ -14,7 +14,7 @@
 <html>
 	<body>
 		<script>
-			function change_time()
+			function change_time()//once change the course,change_time() is called to show the right time
 			{
 				//alert("change_time");
 				var xmlHttpReg = null;
@@ -32,9 +32,9 @@
 					var selected=document.getElementById("course_name");
 					var index=selected.selectedIndex;
 					var course_name=selected.options[index].value;
-              				xmlHttpReg.open("get", "change_course.php?course="+course_name, true);
+              				xmlHttpReg.open("get", "change_course.php?course="+course_name, true);//start ajax request,and send variable course=course_name to change_course.php
                				xmlHttpReg.send(null);
-              				xmlHttpReg.onreadystatechange = doResult;
+              				xmlHttpReg.onreadystatechange = doResult;//when change_course.php give a response,call doResult()
 				}
 
 				function doResult()
@@ -43,7 +43,7 @@
 					{
                  				if(xmlHttpReg.status==200)
 						{
-                      					document.getElementById("time").innerHTML=xmlHttpReg.responseText;
+                      					document.getElementById("time").innerHTML=xmlHttpReg.responseText;//change_course.php give the new course time list.write it to the html file.
               					}
               				}
 
